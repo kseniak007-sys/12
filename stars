@@ -1,0 +1,37 @@
+mport pygame
+
+pygame.init()
+screen = pygame.display.set_mode((400, 400))
+pygame.display.set_caption('Stars')
+clock = pygame.time.Clock()
+
+from random import randint, choice
+
+colors = ["red", "blue", "yellow", 'pink', 'magenta', 'green']
+
+def star():
+    return  [randint(10, 390), randint(10, 200)]
+
+# stars = [ star() for _ in range(50) ]
+stars = []
+r = 0
+running = True
+while running:
+    r = (r + 1) % 7
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running=False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            stars.append([event.pos[0], event.pos[1]])
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_p:
+                print(stars)
+    screen.fill((20,24,28))
+    for star in stars:
+        star[0] + randint(-3, 3)
+        star[1] + randint(-3, 3)
+        pygame.draw.circle(screen, "yellow", star, r)
+    pygame.display.flip()
+    clock.tick(60)
+
+pygame.quit()
