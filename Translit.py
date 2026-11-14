@@ -21,8 +21,8 @@ def translit(text):
                 latin = latin.capitalize()
             result.append(latin)
         else:
-            result.append(ch)   # не кириллица — как есть
+            result.append(ch)   
     return "".join(result)
 
-print(translit("Привет, мир!"))   # Privet, mir!
-print(translit("Щука"))           # Shchuka
+text=str(input())
+print(translit(text))
