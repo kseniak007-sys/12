@@ -8,7 +8,7 @@ def simnumbers(n):
             n //= a 
         a+=1
     return numbers
-in=int(input())
-result=simnumbers(in)
+n=int(input())
+result=simnumbers(n)
 print(result)
 
